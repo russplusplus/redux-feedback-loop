@@ -9,28 +9,28 @@ import { Provider } from 'react-redux';
 
 registerServiceWorker();
 
-const setFeeling = (state = '', action) => {
+const feeling = (state = '', action) => {
     if (action.type === 'SET_FEELING') {
         return action.payload;
     }
     return state;
 }
 
-const setUnderstanding = (state = '', action) => {
+const understanding = (state = '', action) => {
     if (action.type === 'SET_UNDERSTANDING') {
         return action.payload;
     }
     return state;
 }
 
-const setSupport = (state = '', action) => {
+const support = (state = '', action) => {
     if (action.type === 'SET_SUPPORT') {
         return action.payload;
     }
     return state;
 }
 
-const setComment = (state = '', action) => {
+const comment = (state = '', action) => {
     if (action.type === 'SET_COMMENT') {
         return action.payload;
     }
@@ -39,10 +39,10 @@ const setComment = (state = '', action) => {
 
 const storeInstance = createStore(
     combineReducers({
-        setFeeling,
-        setUnderstanding,
-        setSupport,
-        setComment
+        feeling,
+        understanding,
+        support,
+        comment
     }),
     applyMiddleware(logger)
 )

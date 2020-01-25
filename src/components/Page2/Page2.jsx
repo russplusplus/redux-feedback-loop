@@ -23,6 +23,10 @@ class Page2 extends Component {
     render() {
         return (
             <div>
+                <header className="App-header">
+                    <h1 className="App-title">Feedback!</h1>
+                    <h4><i>Don't forget it!</i></h4>
+                </header>
                 <h1>How well are you understanding the content?</h1>
                 <input type="number" min="1" max="5" onChange={this.setUnderstanding}></input>
                 <button onClick={this.handleClick}>Next</button>

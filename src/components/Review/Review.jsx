@@ -1,15 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class Page1 extends Component {
+class Review extends Component {
+
+    handleSubmit = () => {
+        
+    }
     render() {
         return (
             <div>
-                <h1>How are you feeling today?</h1>
-                <input type="range" name="feeling" min="1" max="5"></input>
+                <h1>Review Your Feedback</h1>
+                <p>Feelings: {this.props.reduxState.feeling}</p>
+                <p>Understanding: {this.props.reduxState.understanding}</p>
+                <p>Support: {this.props.reduxState.support}</p>
+                <p>Comments: {this.props.reduxState.comment}</p>
+                <button onClick={this.handleSubmit}>Submit</button>
             </div>
         )
     }
 }
 
-export default connect()(Page1);
+const putReduxStateOnProps = (reduxState) => {
+    return {
+        reduxState
+    }
+}
+
+export default connect(putReduxStateOnProps)(Review);
