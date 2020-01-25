@@ -12,6 +12,7 @@ class Review extends Component {
         }).catch((err) => {
             alert(err);
         })
+        this.props.history.push('/success');
     }
     render() {
         return (
