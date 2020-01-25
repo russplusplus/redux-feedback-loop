@@ -12,12 +12,18 @@ app.use(express.static('build'));
 /** ---------- EXPRESS ROUTES ---------- **/
 app.post('/feedback', (req, res) => {
     console.log('in POST route')
-    // pool.query('SELECT * from "pizza";').then((result) => {
-    //     res.send(result.rows);
-    // }).catch((error) => {
-    //     console.log('Error GET /api/pizza', error)
-    //     res.sendStatus(500);
-    // });
+    let feeling = String(req.body.feeling);
+    let understanding = String(req.body.understanding);
+    let support = String(req.body.support);
+    let comment = String(req.body.comment);
+    console.log(feeling, understanding, support, comment)
+    let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comment") VALUES ($1, $2, $3, $4);`;
+    pool.query(queryText, [feeling, understanding, support, comment]).then((result) => {
+        console.log('cool')
+        }).catch((error) => {
+        console.log('Error GET', error)
+        res.sendStatus(500);
+    });
 })
 
 /** ---------- START SERVER ---------- **/
