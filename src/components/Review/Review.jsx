@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Axios from 'axios';
 
 class Review extends Component {
 
     handleSubmit = () => {
-        
+        let feedback = this.props.reduxState;
+        Axios.post('/feedback', feedback)
+        .then((result) => {
+            console.log('success!')
+        }).catch((err) => {
+            alert(err);
+        })
     }
     render() {
         return (
