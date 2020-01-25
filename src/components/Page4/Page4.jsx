@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Page4 extends Component {
-    state = {}
+    state = {
+        comment: ''
+    }
     
     handleClick = () => {
-        
         this.props.dispatch({
             type: 'SET_COMMENT',
             payload: this.state.comment 
         })
-
         this.props.history.push('/review');
     }
 

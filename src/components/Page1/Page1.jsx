@@ -3,16 +3,23 @@ import { connect } from 'react-redux';
 
 class Page1 extends Component {
 
-    state = {}
+    state = {
+        feeling: ''
+    }
     
     handleClick = () => {
-        //dispatch
-        this.props.dispatch({
-            type: 'SET_FEELING',
-            payload: this.state.feeling 
-        })
+        console.log(this.state.feeling)
+        if (this.state.feeling === '') {
+            alert('A number must be entered.')
+        } else {
+            this.props.dispatch({
+                type: 'SET_FEELING',
+                payload: this.state.feeling 
+            })
+            this.props.history.push('/page2');
+        }
+        
 
-        this.props.history.push('/page2');
     }
 
     setFeeling = (event) => {

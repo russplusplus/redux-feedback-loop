@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Page3 extends Component {
-    state = {}
+    state = {
+        support: ''
+    }
     
     handleClick = () => {
-        //dispatch
-        this.props.dispatch({
-            type: 'SET_SUPPORT',
-            payload: this.state.support 
-        })
-
-        this.props.history.push('/page4');
+        if (this.state.support === '') {
+            alert('A number must be entered')
+        } else {
+            this.props.dispatch({
+                type: 'SET_SUPPORT',
+                payload: this.state.support 
+            })
+            this.props.history.push('/page4');
+        }
     }
 
     setSupport = (event) => {

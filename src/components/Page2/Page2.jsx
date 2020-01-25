@@ -3,16 +3,20 @@ import { connect } from 'react-redux';
 
 class Page2 extends Component {
 
-    state = {}
+    state = {
+        understanding: ''
+    }
     
     handleClick = () => {
-        //dispatch
-        this.props.dispatch({
-            type: 'SET_UNDERSTANDING',
-            payload: this.state.understanding 
-        })
-
-        this.props.history.push('/page3');
+        if (this.state.understanding === '') {
+            alert('A number must be entered')
+        } else {
+            this.props.dispatch({
+                type: 'SET_UNDERSTANDING',
+                payload: this.state.understanding 
+            })
+            this.props.history.push('/page3');
+        }
     }
 
     setUnderstanding = (event) => {
