@@ -1,6 +1,6 @@
-# Project Name
+# React Redux Feedback App
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+This full stack app uses React Redux to manage client-side data, Node.js 
 
 ## Description
 
